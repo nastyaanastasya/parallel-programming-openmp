@@ -9,16 +9,16 @@ using namespace std;
 int main() {
 
 	const int WIDTH = 6;
-	const int HEIGTH = 8;
+	const int HEIGHT = 8;
 
 	int min = numeric_limits<int>::max();
 	int max = numeric_limits<int>::min();
 
-	int d[WIDTH][HEIGTH];
+	int d[WIDTH][HEIGHT];
 	srand(time(NULL));
 
 	for (int i = 0; i < WIDTH; i++) {
-		for (int j = 0; j < HEIGTH; j++) {
+		for (int j = 0; j < HEIGHT; j++) {
 			d[i][j] = rand();
 			printf("%d ", d[i][j]);
 		}
@@ -30,7 +30,7 @@ int main() {
 	for (int i = 0; i < WIDTH; i++) {
 
 		#pragma omp parallel for
-		for (int j = 0; j < HEIGTH; j++) {
+		for (int j = 0; j < HEIGHT; j++) {
 			if (d[i][j] > max) {
 
 				#pragma omp critical
